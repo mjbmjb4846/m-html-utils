@@ -1,0 +1,32 @@
+{
+  "name": "m-html-utils",
+  "version": "1.0.0",
+  "description": "A collection of custom HTML elements for modern web development",
+  "main": "dist/m-html-utils.js",
+  "module": "dist/m-html-utils.esm.js",
+  "scripts": {
+    "build": "node build.js",
+    "build:minified": "node build.js --minify",
+    "serve": "npx http-server . -p 8080 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjbmjb4846/m-html-utils.git"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "html",
+    "javascript",
+    "frontend"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "terser": "^5.16.0"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ]
+}

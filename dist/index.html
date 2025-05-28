@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-HTML-Utils - Custom HTML Elements Library</title>
+    <meta name="description" content="A collection of custom HTML elements for modern web development">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #00b894;
+            --text-color: #2d3436;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        main {
+            padding: 4rem 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .installation {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .links {
+            margin-bottom: 1rem;
+        }
+        
+        .links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>M-HTML-Utils</h1>
+            <p class="subtitle">A collection of custom HTML elements for modern web development</p>
+            <div class="cta-buttons">
+                <a href="#installation" class="btn btn-primary">Get Started</a>
+                <a href="./example.html" class="btn btn-secondary">View Examples</a>
+                <a href="https://github.com/mjbmjb4846/m-html-utils" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">13</div>
+                    <div>Custom Elements</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">32.6KB</div>
+                    <div>Minified Size</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">0</div>
+                    <div>Dependencies</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div>Web Standards</div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🚀 Easy to Use</h3>
+                    <p>Just include one script tag and start using custom elements immediately. No build process required.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Customizable</h3>
+                    <p>Every component can be styled with CSS variables and configured with HTML attributes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Lightweight</h3>
+                    <p>Only 32.6KB minified with no external dependencies. Perfect for fast-loading websites.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Framework Agnostic</h3>
+                    <p>Works with any framework or vanilla HTML. Built on web standards for maximum compatibility.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Production Ready</h3>
+                    <p>Battle-tested components with comprehensive browser support and TypeScript definitions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Performance Focused</h3>
+                    <p>Shadow DOM encapsulation and efficient rendering for optimal performance.</p>
+                </div>
+            </div>
+
+            <div class="installation" id="installation">
+                <h2>Quick Installation</h2>
+                <p>Get started with M-HTML-Utils in seconds:</p>
+                
+                <h3>CDN (Recommended)</h3>
+                <div class="code-block">&lt;script src="https://cdn.jsdelivr.net/gh/mjbmjb4846/m-html-utils@latest/dist/m-html-utils.min.js"&gt;&lt;/script&gt;</div>
+                
+                <h3>NPM</h3>
+                <div class="code-block">npm install m-html-utils</div>
+                
+                <h3>Direct Download</h3>
+                <p>Download the files directly:</p>
+                <div style="margin: 1rem 0;">
+                    <a href="./m-html-utils.min.js" download class="btn btn-primary" style="margin-right: 1rem;">Download Minified (32.6KB)</a>
+                    <a href="./m-html-utils.js" download class="btn btn-secondary">Download Development (53.7KB)</a>
+                </div>
+            </div>
+
+            <div style="background: var(--white); padding: 3rem; border-radius: var(--border-radius);">
+                <h2>Available Components</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-title&gt;</strong><br>
+                        <small>Hero titles with background images</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-text&gt;</strong><br>
+                        <small>Formatted text blocks</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-button&gt;</strong><br>
+                        <small>Custom styled buttons</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-carousel&gt;</strong><br>
+                        <small>Image and content carousels</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-dropdown&gt;</strong><br>
+                        <small>Dropdown menus</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-image&gt;</strong><br>
+                        <small>Enhanced image components</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-spacer&gt;</strong><br>
+                        <small>Flexible spacing elements</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>&lt;m-download&gt;</strong><br>
+                        <small>Download buttons</small>
+                    </div>
+                    <div style="padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+                        <strong>...and 5 more!</strong><br>
+                        <small><a href="./example.html">See all components</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="links">
+                <a href="./README.md">Documentation</a>
+                <a href="./example.html">Examples</a>
+                <a href="https://github.com/mjbmjb4846/m-html-utils">GitHub</a>
+                <a href="https://github.com/mjbmjb4846/m-html-utils/issues">Issues</a>
+            </div>
+            <p>&copy; 2025 M-HTML-Utils. Released under the MIT License.</p>
+        </div>
+    </footer>
+</body>
+</html>

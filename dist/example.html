@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-HTML-Utils Example</title>
+    <style>
+        :root {
+            --white: #ffffff;
+            --text: #333333;
+            --color-light: #6c5ce7;
+            --color-dark: #2d3436;
+            --medium-text: 18px;
+            --normal-text: 16px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>M-HTML-Utils Custom Elements Demo</h1>
+        
+        <!-- Title Component -->
+        <m-title background-color="#6c5ce7" text-color="#ffffff" height="30vh">
+            Welcome to M-HTML-Utils
+        </m-title>
+        
+        <!-- Spacer -->
+        <m-spacer height="20px"></m-spacer>
+        
+        <!-- Alt Title -->
+        <m-alt-title color="#e17055" text-color="#ffffff">
+            Features Overview
+        </m-alt-title>
+        
+        <!-- Text Box -->
+        <m-text format="left">
+            This library provides a collection of custom HTML elements that you can use 
+            to quickly build modern web interfaces. Each component is self-contained and 
+            easy to customize with attributes.
+        </m-text>
+        
+        <!-- Spacer -->
+        <m-spacer height="20px"></m-spacer>
+        
+        <!-- Button -->
+        <m-button 
+            link="https://github.com/mjbmjb4846/m-html-utils" 
+            text="View on GitHub" 
+            color="#00b894" 
+            highlight="#ffffff"
+            ionIcon="logo-github">
+        </m-button>
+        
+        <!-- Spacer -->
+        <m-spacer height="20px"></m-spacer>
+        
+        <!-- Download Component -->
+        <m-download href="#" name="example-file">
+            Download Example File
+        </m-download>
+        
+        <!-- Spacer -->
+        <m-spacer height="20px"></m-spacer>
+        
+        <!-- Image Component -->
+        <m-image 
+            src="https://via.placeholder.com/400x200/6c5ce7/ffffff?text=Example+Image" 
+            alt="Example Image" 
+            width="400" 
+            height="200">
+        </m-image>
+    </div>
+
+    <!-- Include the M-HTML-Utils library -->
+    <script src="./m-html-utils.min.js"></script>
+    
+    <!-- Optional: Include Ionicons for button icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

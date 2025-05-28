@@ -1,0 +1,35 @@
+{
+  "name": "m-html-utils",
+  "version": "1.0.0",
+  "description": "A collection of custom HTML elements for modern web development",
+  "main": "m-html-utils.js",
+  "module": "m-html-utils.esm.js",
+  "browser": "m-html-utils.min.js",
+  "types": "types.d.ts",
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "html",
+    "javascript",
+    "frontend",
+    "ui-components",
+    "web-development"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjbmjb4846/m-html-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mjbmjb4846/m-html-utils/issues"
+  },
+  "homepage": "https://github.com/mjbmjb4846/m-html-utils#readme",
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "README.md"
+  ],
+  "jsdelivr": "m-html-utils.min.js",
+  "unpkg": "m-html-utils.min.js"
+}
