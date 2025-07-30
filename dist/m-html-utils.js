@@ -1,7 +1,7 @@
 /**
  * M-HTML-Utils - Custom HTML Elements Library
- * Version: 1.0.0
- * Build Date: 2025-05-28T16:57:30.559Z
+ * Version: 1.1.0
+ * Build Date: 2025-07-30T14:37:32.451Z
  * 
  * This bundle contains the following custom elements:
  * - AltTitle
@@ -50,8 +50,8 @@
      * ${1:Description placeholder}
      */
     render() {
-            const color = this.getAttribute('color') || 'var(--white)';
-            const textColor = this.getAttribute('text-color') || 'var(--text)';
+            const color = this.getAttribute('color') || 'var(--white)' || '#FFFFFF';
+            const textColor = this.getAttribute('text-color') || 'var(--text)' || '#000000';
             const format = this.getAttribute('format') || 'center';
     
             this.shadowRoot.innerHTML = `
@@ -65,7 +65,7 @@
                         padding: 0 40px;
                         color: ${textColor};
                         font-weight: bold;
-                        font-size: var(--medium-text);
+                        font-size: var(--medium-text, 1.2em);
                         width: calc(100% - 80px);
                         background-color: ${color};
                     }
@@ -97,11 +97,13 @@
         }
     
         /**
-         * Loads the schedule.json file.
+         * Loads the schedule.json file or from a custom URL specified by href/link attribute.
          */
         async loadSchedule() {
             try {
-                const response = await fetch('./schedule.json');
+                // Use href or link attribute if provided, otherwise default to './schedule.json'
+                const dataUrl = this.getAttribute('href') || this.getAttribute('link') || './schedule.json';
+                const response = await fetch(dataUrl);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -182,8 +184,8 @@
          * Added padding to the .announcement-text class for vertical spacing.
          */
         render() {
-            const color = this.getAttribute('color') || 'var(--color-light)';
-            const textColor = this.getAttribute('text-color') || 'var(--text)';
+            const color = this.getAttribute('color') || 'var(--color-light)' || '#95c7e4';
+            const textColor = this.getAttribute('text-color') || 'var(--text)' || '#000000';
             const animation = this.getAttribute('animation') || 'none';
     
             // The animations need some work. Should animate each individual letter at some point.
@@ -398,7 +400,7 @@
         const width = this.getAttribute('width') || '100%';
         const height = this.getAttribute('height') || '400px';
         const borderWidth = this.getAttribute('border-width') || '0px';
-        const borderColor = this.getAttribute('border-color') || 'var(--color-light)';
+        const borderColor = this.getAttribute('border-color') || 'var(--color-light)' || '#95c7e4';
     
         this.shadowRoot.innerHTML = `
           <style>
@@ -674,7 +676,7 @@
     render() {
             const align = this.getAttribute('position') || 'center';
         
-            let content = this.getAttribute('content');
+            let content = this.getAttribute('content') || '';
             if (content) {
                 content = content.replace(/\(\(/g, "<").replace(/\)\)/g, ">").replace(/\'\'/g, '"');
             } else {
@@ -690,21 +692,21 @@
                         align-items: center;
                         padding: 30px 40px;
                         justify-content: ${align};
-                        color: var(--text);
+                        color: var(--text, '#000000');
                         width: calc(100vw - 80px);
-                        background-color: ${this.getAttribute('color') || "var(--white)"};
+                        background-color: ${this.getAttribute('color') || "var(--white, '#FFFFFF')"};
                         cursor: pointer;
                     }
                     .title {
                         font-weight: bold;
-                        font-size: var(--medium-text);
+                        font-size: var(--medium-text, 1.2em);
                         user-select: none;
                     }
                     .content {
                         display: none;
                         overflow: hidden;
                         font-weight: normal;
-                        font-size: var(--normal-text);
+                        font-size: var(--normal-text, 1em);
                         padding-top: 0;
                         user-select: text;
                     }
@@ -713,7 +715,7 @@
                         transition: transform 0.3s ease-in-out;
                     }
                 </style>
-                <div class="title">${this.getAttribute('title') || "TITLE"}&nbsp&nbsp&nbsp<span class="arrow">▽</span></div>
+                <div class="title">${this.getAttribute('title')}&nbsp&nbsp&nbsp<span class="arrow">▽</span></div>
                 <div class="content">${content}</div>
             `;
         }    
@@ -818,10 +820,10 @@
                 font-family: Arial, sans-serif;
               }
               .name-role {
-                font-size: var(--normal-text);
+                font-size: var(--normal-text, 1em);
                 font-weight: bold;
-                color: var(--color-dark);
-                background: var(--color-light-gray);
+                color: var(--color-dark, #282d62);
+                background: var(--color-light-gray, #cecece);
                 padding: 10px;
                 border-radius: 5px;
                 transition: background-color 0.3s ease;
@@ -829,20 +831,20 @@
                 box-sizing: border-box;
               }
               .name-role.show {
-                background-color: var(--color-light);
+                background-color: var(--color-light, #95c7e4);
                 border-radius: 8px 8px 0 0;
-                border: 1px solid var(--color-dark-gray);
+                border: 1px solid var(--color-dark-gray, #5c5c5c);
                 border-bottom: none;
               }
               .card {
-                background-color: var(--white);
+                background-color: var(--white, #FFFFFF);
                 border-radius: 8px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 transition: opacity 0.3s ease;
                 max-height: 0;
                 opacity: 0;
                 padding: 0 20px;
-                background: var(--white);
+                background: var(--white, #FFFFFF);
                 overflow: hidden;
               }
               .card.show {
@@ -850,16 +852,16 @@
                 opacity: 1;
                 padding: 20px 0;
                 border-radius: 0 0 8px 8px;
-                border: 1px solid var(--color-dark-gray);
+                border: 1px solid var(--color-dark-gray, #5c5c5c);
                 border-top: none;
               }
               .email, .bio {
                 margin: 0 20px;
-                font-size: var(--normal-text);
-                color: var(--text);
+                font-size: var(--normal-text, 1em);
+                color: var(--text, '#000000');
               }
               .email a {
-                color: var(--color-light);
+                color: var(--color-light, '#95c7e4');
                 text-decoration: none;
               }
               .email a:hover {
@@ -928,9 +930,9 @@
       }
     
       async render() {
-        const text = this.getAttribute('text') || 'Dropdown';
-        const color = this.getAttribute('color') || 'var(--color-light)';
-        const highlight = this.getAttribute('highlight') || 'var(--white)';
+        const text = this.getAttribute('text');
+        const color = this.getAttribute('color') || 'var(--color-light)' || '#95c7e4';
+        const highlight = this.getAttribute('highlight') || 'var(--white)' || '#FFFFFF';
         const ionicon = this.getAttribute('ionicon') || "arrow-down-circle";
         const svg = this.getAttribute('svg');
         const content = this.getAttribute('content') || '';
@@ -1145,8 +1147,8 @@
      * ${1:Description placeholder}
      */
     render() {
-            const textColor = this.getAttribute('text-color') || 'var(--text)';
-            const color = this.getAttribute('color') || 'var(--white)';
+            const textColor = this.getAttribute('text-color') || 'var(--text)' || '#000000';
+            const color = this.getAttribute('color') || 'var(--white)' || '#FFFFFF';
             const format = this.getAttribute('format') || 'left';
     
             this.shadowRoot.innerHTML = `
@@ -1160,7 +1162,7 @@
                         padding: 0 40px;
                         color: ${textColor};
                         font-weight: normal;
-                        font-size: var(--normal-text);
+                        font-size: var(--normal-text, 1em);
                         width: calc(100% - 80px);
                         background-color: ${color};
                     }
@@ -1202,7 +1204,7 @@
      */
     render() {
             const background = this.getAttribute('background');
-            const backgroundColor = this.getAttribute('background-color') || 'var(--color-dark)';
+            const backgroundColor = this.getAttribute('background-color') || 'var(--color-dark)' || '#282d62';
             const textColor = this.getAttribute('text-color') || '#ffffff';
             const brightness = this.getAttribute('brightness') || 0.6;
             const height = this.getAttribute('height') || '50vh';
@@ -1220,7 +1222,7 @@
                         justify-content: center;
                         color: ${textColor};
                         font-weight: bold;
-                        font-size: var(--large-text);
+                        font-size: var(--large-text, 2em);
                         height: ${height};
                         width: 100%;
                         background-color: ${backgroundColor};
@@ -1288,7 +1290,7 @@
         }
       
         /**
-         * Fetches events from the schedule.json file.
+         * Fetches events from the schedule.json file or from a custom URL specified by href/link attribute.
          *
          * @async
          * @method fetchEvents
@@ -1296,7 +1298,9 @@
          */
         async fetchEvents() {
           try {
-            const response = await fetch('./schedule.json');
+            // Use href or link attribute if provided, otherwise default to './schedule.json'
+            const dataUrl = this.getAttribute('href') || this.getAttribute('link') || './schedule.json';
+            const response = await fetch(dataUrl);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -1499,8 +1503,8 @@
        */
       async render() {
         const link = this.getAttribute('link') || "about:blank";
-        const color = this.getAttribute('color') || 'var(--color-light)';
-        const highlight = this.getAttribute('highlight') || 'var(--white)';
+        const color = this.getAttribute('color') || 'var(--color-light)' || '#95c7e4';
+        const highlight = this.getAttribute('highlight') || 'var(--white)' || '#FFFFFF';
         const ionicon = this.getAttribute('ionicon');
         const svg = this.getAttribute('svg');
         const text = this.getAttribute('text');

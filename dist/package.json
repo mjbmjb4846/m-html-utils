@@ -1,6 +1,6 @@
 {
   "name": "m-html-utils",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "description": "A collection of custom HTML elements for modern web development",
   "main": "m-html-utils.js",
   "module": "m-html-utils.esm.js",
@@ -15,7 +15,7 @@
     "ui-components",
     "web-development"
   ],
-  "author": "Your Name",
+  "author": "mjbmjb",
   "license": "MIT",
   "repository": {
     "type": "git",

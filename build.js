@@ -24,7 +24,7 @@ async function buildBundle() {
   // Add a header comment
   bundleContent += `/**
  * M-HTML-Utils - Custom HTML Elements Library
- * Version: 1.0.0
+ * Version: 1.1.0
  * Build Date: ${new Date().toISOString()}
  * 
  * This bundle contains the following custom elements:
