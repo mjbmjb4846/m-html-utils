@@ -11,7 +11,7 @@ This folder contains the built distribution files for M-HTML-Utils - a collectio
 <script src="https://cdn.jsdelivr.net/gh/mjbmjb4846/m-html-utils@latest/dist/m-html-utils.min.js"></script>
 
 <!-- Specific version (replace v1.1.0 with desired version) -->
-<script src="https://cdn.jsdelivr.net/gh/mjbmjb4846/m-html-utils@v1.3.0/dist/m-html-utils.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mjbmjb4846/m-html-utils@v1.3.1/dist/m-html-utils.min.js"></script>
 ```
 
 ### NPM Usage

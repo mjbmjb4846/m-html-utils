@@ -1,7 +1,7 @@
 /**
  * M-HTML-Utils - Custom HTML Elements Library
- * Version: 1.1.0
- * Build Date: 2025-07-30T14:37:32.451Z
+ * Version: 1.3.1
+ * Build Date: 2025-07-30T14:45:44.962Z
  * 
  * This bundle contains the following custom elements:
  * - AltTitle
