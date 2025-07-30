@@ -201,7 +201,7 @@ function createUsageExample(distDir) {
             text="View on GitHub" 
             color="#00b894" 
             highlight="#ffffff"
-            ionIcon="logo-github">
+            ionicon="logo-github">
         </m-button>
         
         <!-- Spacer -->

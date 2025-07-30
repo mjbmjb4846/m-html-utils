@@ -1,6 +1,6 @@
 {
   "name": "m-html-utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A collection of custom HTML elements for modern web development",
   "main": "dist/m-html-utils.js",
   "module": "dist/m-html-utils.esm.js",

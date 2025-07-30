@@ -931,7 +931,7 @@
         const text = this.getAttribute('text') || 'Dropdown';
         const color = this.getAttribute('color') || 'var(--color-light)';
         const highlight = this.getAttribute('highlight') || 'var(--white)';
-        const ionIcon = this.getAttribute('ionIcon') || "arrow-down-circle";
+        const ionicon = this.getAttribute('ionicon') || "arrow-down-circle";
         const svg = this.getAttribute('svg');
         const content = this.getAttribute('content') || '';
     
@@ -1037,7 +1037,7 @@
             <span class="boxIcon">
               ${svg 
                 ? `<div class="svg-container"></div>` 
-                : `<ion-icon name="${ionIcon}"></ion-icon>`}
+                : `<ion-icon name="${ionicon}"></ion-icon>`}
             </span>
           </div>
           <div class="content">
@@ -1063,7 +1063,7 @@
             console.error('Error loading SVG:', error);
             // Fallback to ion-icon if SVG fails to load
             const container = this.shadowRoot.querySelector('.svg-container');
-            container.innerHTML = `<ion-icon name="${ionIcon}"></ion-icon>`;
+            container.innerHTML = `<ion-icon name="${ionicon}"></ion-icon>`;
           }
         }
     
@@ -1107,7 +1107,7 @@
     
       // Observe attributes for changes
       static get observedAttributes() {
-        return ['text', 'color', 'highlight', 'ionIcon', 'svg', 'content'];
+        return ['text', 'color', 'highlight', 'ionicon', 'svg', 'content'];
       }
     
       // Handle attribute changes
@@ -1501,7 +1501,7 @@
         const link = this.getAttribute('link') || "about:blank";
         const color = this.getAttribute('color') || 'var(--color-light)';
         const highlight = this.getAttribute('highlight') || 'var(--white)';
-        const ionIcon = this.getAttribute('ionIcon');
+        const ionicon = this.getAttribute('ionicon');
         const svg = this.getAttribute('svg');
         const text = this.getAttribute('text');
         const target = "_" + (this.getAttribute('target') || 'blank');
@@ -1566,7 +1566,7 @@
               width: 50px;
               height: 50px;
             }
-            .button:hover .ionIcon,
+            .button:hover .ionicon,
             .button:hover .svg-container svg {
               animation: rotate 0.6s ease-in-out;
             }
@@ -1586,7 +1586,7 @@
             <span class="boxIcon">
               ${svg 
                 ? `<div class="svg-container"></div>` 
-                : `<ion-icon class="ionIcon"></ion-icon>`}
+                : `<ion-icon class="ionicon"></ion-icon>`}
             </span>
           </a>
         `;
@@ -1614,16 +1614,16 @@
             console.error('Error loading SVG:', error);
             // Fallback to ion-icon if SVG fails to load
             const container = this.shadowRoot.querySelector('.svg-container');
-            container.innerHTML = '<ion-icon class="ionIcon"></ion-icon>';
+            container.innerHTML = '<ion-icon class="ionicon"></ion-icon>';
           }
         }
         
         // Set ion-icon if no SVG is provided
-        if (!svg && ionIcon) {
-          const ionIconElement = this.shadowRoot.querySelector('.ionIcon');
-          ionIconElement.name = ionIcon;
+        if (!svg && ionicon) {
+          const ioniconElement = this.shadowRoot.querySelector('.ionicon');
+          ioniconElement.name = ionicon;
         } else if (!svg) {
-          // Hide icon section if neither SVG nor ionIcon is provided
+          // Hide icon section if neither SVG nor ionicon is provided
           const iconElement = this.shadowRoot.querySelector('.boxIcon ion-icon') || 
                             this.shadowRoot.querySelector('.boxIcon .svg-container');
           if (iconElement) {

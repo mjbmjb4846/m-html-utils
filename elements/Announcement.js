@@ -11,11 +11,13 @@ class Announcement extends HTMLElement {
     }
 
     /**
-     * Loads the schedule.json file.
+     * Loads the schedule.json file or from a custom URL specified by href/link attribute.
      */
     async loadSchedule() {
         try {
-            const response = await fetch('./schedule.json');
+            // Use href or link attribute if provided, otherwise default to './schedule.json'
+            const dataUrl = this.getAttribute('href') || this.getAttribute('link') || './schedule.json';
+            const response = await fetch(dataUrl);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -96,8 +98,8 @@ class Announcement extends HTMLElement {
      * Added padding to the .announcement-text class for vertical spacing.
      */
     render() {
-        const color = this.getAttribute('color') || 'var(--color-light)';
-        const textColor = this.getAttribute('text-color') || 'var(--text)';
+        const color = this.getAttribute('color') || 'var(--color-light)' || '#95c7e4';
+        const textColor = this.getAttribute('text-color') || 'var(--text)' || '#000000';
         const animation = this.getAttribute('animation') || 'none';
 
         // The animations need some work. Should animate each individual letter at some point.

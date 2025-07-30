@@ -39,10 +39,10 @@ class InfoCard extends HTMLElement {
             font-family: Arial, sans-serif;
           }
           .name-role {
-            font-size: var(--normal-text);
+            font-size: var(--normal-text, 1em);
             font-weight: bold;
-            color: var(--color-dark);
-            background: var(--color-light-gray);
+            color: var(--color-dark, #282d62);
+            background: var(--color-light-gray, #cecece);
             padding: 10px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
@@ -50,20 +50,20 @@ class InfoCard extends HTMLElement {
             box-sizing: border-box;
           }
           .name-role.show {
-            background-color: var(--color-light);
+            background-color: var(--color-light, #95c7e4);
             border-radius: 8px 8px 0 0;
-            border: 1px solid var(--color-dark-gray);
+            border: 1px solid var(--color-dark-gray, #5c5c5c);
             border-bottom: none;
           }
           .card {
-            background-color: var(--white);
+            background-color: var(--white, #FFFFFF);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: opacity 0.3s ease;
             max-height: 0;
             opacity: 0;
             padding: 0 20px;
-            background: var(--white);
+            background: var(--white, #FFFFFF);
             overflow: hidden;
           }
           .card.show {
@@ -71,16 +71,16 @@ class InfoCard extends HTMLElement {
             opacity: 1;
             padding: 20px 0;
             border-radius: 0 0 8px 8px;
-            border: 1px solid var(--color-dark-gray);
+            border: 1px solid var(--color-dark-gray, #5c5c5c);
             border-top: none;
           }
           .email, .bio {
             margin: 0 20px;
-            font-size: var(--normal-text);
-            color: var(--text);
+            font-size: var(--normal-text, 1em);
+            color: var(--text, '#000000');
           }
           .email a {
-            color: var(--color-light);
+            color: var(--color-light, '#95c7e4');
             text-decoration: none;
           }
           .email a:hover {

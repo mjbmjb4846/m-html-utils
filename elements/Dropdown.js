@@ -64,7 +64,7 @@ attributeChangedCallback(name, oldValue, newValue) {
 render() {
         const align = this.getAttribute('position') || 'center';
     
-        let content = this.getAttribute('content');
+        let content = this.getAttribute('content') || '';
         if (content) {
             content = content.replace(/\(\(/g, "<").replace(/\)\)/g, ">").replace(/\'\'/g, '"');
         } else {
@@ -80,21 +80,21 @@ render() {
                     align-items: center;
                     padding: 30px 40px;
                     justify-content: ${align};
-                    color: var(--text);
+                    color: var(--text, '#000000');
                     width: calc(100vw - 80px);
-                    background-color: ${this.getAttribute('color') || "var(--white)"};
+                    background-color: ${this.getAttribute('color') || "var(--white, '#FFFFFF')"};
                     cursor: pointer;
                 }
                 .title {
                     font-weight: bold;
-                    font-size: var(--medium-text);
+                    font-size: var(--medium-text, 1.2em);
                     user-select: none;
                 }
                 .content {
                     display: none;
                     overflow: hidden;
                     font-weight: normal;
-                    font-size: var(--normal-text);
+                    font-size: var(--normal-text, 1em);
                     padding-top: 0;
                     user-select: text;
                 }
@@ -103,7 +103,7 @@ render() {
                     transition: transform 0.3s ease-in-out;
                 }
             </style>
-            <div class="title">${this.getAttribute('title') || "TITLE"}&nbsp&nbsp&nbsp<span class="arrow">▽</span></div>
+            <div class="title">${this.getAttribute('title')}&nbsp&nbsp&nbsp<span class="arrow">▽</span></div>
             <div class="content">${content}</div>
         `;
     }    

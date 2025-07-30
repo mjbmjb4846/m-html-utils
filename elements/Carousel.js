@@ -123,7 +123,7 @@ class ImageCarousel extends HTMLElement {
     const width = this.getAttribute('width') || '100%';
     const height = this.getAttribute('height') || '400px';
     const borderWidth = this.getAttribute('border-width') || '0px';
-    const borderColor = this.getAttribute('border-color') || 'var(--color-light)';
+    const borderColor = this.getAttribute('border-color') || 'var(--color-light)' || '#95c7e4';
 
     this.shadowRoot.innerHTML = `
       <style>

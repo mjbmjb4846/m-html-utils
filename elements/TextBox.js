@@ -20,8 +20,8 @@ connectedCallback() {
  * ${1:Description placeholder}
  */
 render() {
-        const textColor = this.getAttribute('text-color') || 'var(--text)';
-        const color = this.getAttribute('color') || 'var(--white)';
+        const textColor = this.getAttribute('text-color') || 'var(--text)' || '#000000';
+        const color = this.getAttribute('color') || 'var(--white)' || '#FFFFFF';
         const format = this.getAttribute('format') || 'left';
 
         this.shadowRoot.innerHTML = `
@@ -35,7 +35,7 @@ render() {
                     padding: 0 40px;
                     color: ${textColor};
                     font-weight: normal;
-                    font-size: var(--normal-text);
+                    font-size: var(--normal-text, 1em);
                     width: calc(100% - 80px);
                     background-color: ${color};
                 }

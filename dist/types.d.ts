@@ -1,4 +1,4 @@
-// Type definitions for M-HTML-Utils v1.0.0
+// Type definitions for M-HTML-Utils v1.1.0
 // Project: https://github.com/mjbmjb4846/m-html-utils
 // Definitions by: M-HTML-Utils Team
 
@@ -13,12 +13,14 @@ declare namespace JSX {
       'x'?: string;
       'y'?: string;
       'zoom'?: string;
+      'speed'?: string;
       children?: React.ReactNode;
     };
 
     'm-alt-title': {
       'color'?: string;
       'text-color'?: string;
+      'format'?: 'left' | 'center' | 'right';
       children?: React.ReactNode;
     };
 
@@ -31,68 +33,91 @@ declare namespace JSX {
 
     'm-spacer': {
       'height'?: string;
+      'width'?: string;
+      'color'?: string;
+      children?: React.ReactNode;
     };
 
     'm-button': {
       'link'?: string;
-      'text'?: string;
+      'text': string;
       'color'?: string;
       'highlight'?: string;
-      'ionIcon'?: string;
+      'ionicon'?: string;
+      'svg'?: string;
+      'target'?: string;
+      children?: React.ReactNode;
+    };
+
+    'm-dropdown': {
+      'title': string;
+      'content'?: string;
+      'color'?: string;
+      'position'?: 'left' | 'center' | 'right';
+      children?: React.ReactNode;
+    };
+
+    'm-drop': {
+      'text': string;
+      'content'?: string;
+      'color'?: string;
+      'highlight'?: string;
+      'ionicon'?: string;
+      'svg'?: string;
       children?: React.ReactNode;
     };
 
     'm-download': {
-      'href'?: string;
+      'href': string;
       'name'?: string;
       children?: React.ReactNode;
     };
 
     'm-image': {
-      'src'?: string;
+      'src': string;
       'alt'?: string;
       'width'?: string | number;
       'height'?: string | number;
-      'loading'?: 'lazy' | 'eager';
-    };
-
-    'm-announcement': {
-      'type'?: 'info' | 'warning' | 'error' | 'success';
-      'dismissible'?: boolean;
-      children?: React.ReactNode;
     };
 
     'm-carousel': {
-      'auto-play'?: boolean;
-      'interval'?: string | number;
-      'show-dots'?: boolean;
-      'show-arrows'?: boolean;
+      'images': string;
+      'width'?: string;
+      'height'?: string;
+      'timer'?: string | number;
+      'border-width'?: string;
+      'border-color'?: string;
       children?: React.ReactNode;
     };
 
-    'm-dropdown': {
-      'label'?: string;
-      'position'?: 'bottom' | 'top' | 'left' | 'right';
+    'm-info': {
+      'name': string;
+      'role'?: string;
+      'email'?: string;
+      'bio'?: string;
+      children?: React.ReactNode;
+    };
+
+    'm-announcement': {
+      'href'?: string;
+      'link'?: string;
+      'color'?: string;
+      'text-color'?: string;
+      'animation'?: string;
+      children?: React.ReactNode;
+    };
+
+    'm-events': {
+      'href'?: string;
+      'link'?: string;
+      'types'?: string;
       children?: React.ReactNode;
     };
 
     'm-spin-dropdown': {
-      'label'?: string;
-      'animation-duration'?: string;
-      children?: React.ReactNode;
-    };
-
-    'm-info-card': {
-      'title'?: string;
-      'icon'?: string;
+      'text': string;
       'color'?: string;
-      'link'?: string;
-      children?: React.ReactNode;
-    };
-
-    'm-upcoming-events': {
-      'max-events'?: string | number;
-      'date-format'?: string;
+      'highlight'?: string;
       children?: React.ReactNode;
     };
   }
@@ -106,14 +131,15 @@ declare global {
     'm-text': HTMLElement;
     'm-spacer': HTMLElement;
     'm-button': HTMLElement;
+    'm-dropdown': HTMLElement;
+    'm-drop': HTMLElement;
     'm-download': HTMLElement;
     'm-image': HTMLElement;
-    'm-announcement': HTMLElement;
     'm-carousel': HTMLElement;
-    'm-dropdown': HTMLElement;
+    'm-info': HTMLElement;
+    'm-announcement': HTMLElement;
+    'm-events': HTMLElement;
     'm-spin-dropdown': HTMLElement;
-    'm-info-card': HTMLElement;
-    'm-upcoming-events': HTMLElement;
   }
 
   // Custom element constructors
@@ -142,6 +168,16 @@ declare global {
     prototype: HTMLElement;
   };
 
+  var MDropdown: {
+    new (): HTMLElement;
+    prototype: HTMLElement;
+  };
+
+  var MDrop: {
+    new (): HTMLElement;
+    prototype: HTMLElement;
+  };
+
   var MDownload: {
     new (): HTMLElement;
     prototype: HTMLElement;
@@ -152,32 +188,27 @@ declare global {
     prototype: HTMLElement;
   };
 
-  var MAnnouncement: {
-    new (): HTMLElement;
-    prototype: HTMLElement;
-  };
-
   var MCarousel: {
     new (): HTMLElement;
     prototype: HTMLElement;
   };
 
-  var MDropdown: {
+  var MInfo: {
+    new (): HTMLElement;
+    prototype: HTMLElement;
+  };
+
+  var MAnnouncement: {
+    new (): HTMLElement;
+    prototype: HTMLElement;
+  };
+
+  var MEvents: {
     new (): HTMLElement;
     prototype: HTMLElement;
   };
 
   var MSpinDropdown: {
-    new (): HTMLElement;
-    prototype: HTMLElement;
-  };
-
-  var MInfoCard: {
-    new (): HTMLElement;
-    prototype: HTMLElement;
-  };
-
-  var MUpcomingEvents: {
     new (): HTMLElement;
     prototype: HTMLElement;
   };

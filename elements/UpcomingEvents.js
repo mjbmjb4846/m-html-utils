@@ -25,7 +25,7 @@ class UpcomingEvents extends HTMLElement {
     }
   
     /**
-     * Fetches events from the schedule.json file.
+     * Fetches events from the schedule.json file or from a custom URL specified by href/link attribute.
      *
      * @async
      * @method fetchEvents
@@ -33,7 +33,9 @@ class UpcomingEvents extends HTMLElement {
      */
     async fetchEvents() {
       try {
-        const response = await fetch('./schedule.json');
+        // Use href or link attribute if provided, otherwise default to './schedule.json'
+        const dataUrl = this.getAttribute('href') || this.getAttribute('link') || './schedule.json';
+        const response = await fetch(dataUrl);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

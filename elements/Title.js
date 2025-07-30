@@ -22,7 +22,7 @@ connectedCallback() {
  */
 render() {
         const background = this.getAttribute('background');
-        const backgroundColor = this.getAttribute('background-color') || 'var(--color-dark)';
+        const backgroundColor = this.getAttribute('background-color') || 'var(--color-dark)' || '#282d62';
         const textColor = this.getAttribute('text-color') || '#ffffff';
         const brightness = this.getAttribute('brightness') || 0.6;
         const height = this.getAttribute('height') || '50vh';
@@ -40,7 +40,7 @@ render() {
                     justify-content: center;
                     color: ${textColor};
                     font-weight: bold;
-                    font-size: var(--large-text);
+                    font-size: var(--large-text, 2em);
                     height: ${height};
                     width: 100%;
                     background-color: ${backgroundColor};

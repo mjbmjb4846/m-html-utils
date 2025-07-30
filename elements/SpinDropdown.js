@@ -17,10 +17,10 @@ class SpinDropdown extends HTMLElement {
   }
 
   async render() {
-    const text = this.getAttribute('text') || 'Dropdown';
-    const color = this.getAttribute('color') || 'var(--color-light)';
-    const highlight = this.getAttribute('highlight') || 'var(--white)';
-    const ionIcon = this.getAttribute('ionIcon') || "arrow-down-circle";
+    const text = this.getAttribute('text');
+    const color = this.getAttribute('color') || 'var(--color-light)' || '#95c7e4';
+    const highlight = this.getAttribute('highlight') || 'var(--white)' || '#FFFFFF';
+    const ionicon = this.getAttribute('ionicon') || "arrow-down-circle";
     const svg = this.getAttribute('svg');
     const content = this.getAttribute('content') || '';
 
@@ -126,7 +126,7 @@ class SpinDropdown extends HTMLElement {
         <span class="boxIcon">
           ${svg 
             ? `<div class="svg-container"></div>` 
-            : `<ion-icon name="${ionIcon}"></ion-icon>`}
+            : `<ion-icon name="${ionicon}"></ion-icon>`}
         </span>
       </div>
       <div class="content">
@@ -152,7 +152,7 @@ class SpinDropdown extends HTMLElement {
         console.error('Error loading SVG:', error);
         // Fallback to ion-icon if SVG fails to load
         const container = this.shadowRoot.querySelector('.svg-container');
-        container.innerHTML = `<ion-icon name="${ionIcon}"></ion-icon>`;
+        container.innerHTML = `<ion-icon name="${ionicon}"></ion-icon>`;
       }
     }
 
@@ -196,7 +196,7 @@ class SpinDropdown extends HTMLElement {
 
   // Observe attributes for changes
   static get observedAttributes() {
-    return ['text', 'color', 'highlight', 'ionIcon', 'svg', 'content'];
+    return ['text', 'color', 'highlight', 'ionicon', 'svg', 'content'];
   }
 
   // Handle attribute changes
